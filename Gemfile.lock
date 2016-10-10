@@ -1,0 +1,23 @@
+PATH
+  remote: .
+  specs:
+    json-rules (0.0.0)
+      ruby-jq (= 0.1.6)
+      trollop (= 2.1.2)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    multi_json (1.11.2)
+    ruby-jq (0.1.6)
+      multi_json
+    trollop (2.1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  json-rules!
+
+BUNDLED WITH
+   1.11.2

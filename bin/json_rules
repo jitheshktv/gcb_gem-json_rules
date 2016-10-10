@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+require 'trollop'
+require 'rules_evaluator'
+
+opts = Trollop::options do
+  opt :input_json_path, 'Path to a CloudFormation json template', type: :string, required: true
+  opt :rules_directory, 'Directory containing rules to evaluate against the template', type: :string, required: true
+end
+
+begin
+  `jq > /dev/null 2>&1`
+rescue Exception
+  puts 'The program jq (v.1.5) must be installed for json_rules to work'
+  exit 1
+end
+
+exit RulesEvaluator.new.emit_results(json_source_path: opts[:input_json_path],
+                                     rule_directory: opts[:rules_directory])
